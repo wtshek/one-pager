@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
-import { BookStoreProvider } from "@/providers/book-providers";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({
   subsets: ["latin"], // Optimized for performance
@@ -23,20 +22,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal,
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased`}
       >
-        <BookStoreProvider>
-          {children}
-          {modal}
-        </BookStoreProvider>
+        {children}
       </body>
     </html>
   );
